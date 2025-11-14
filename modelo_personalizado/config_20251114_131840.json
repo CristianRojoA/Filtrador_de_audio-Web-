@@ -1,0 +1,12 @@
+{
+  "timestamp": "20251114_131840",
+  "num_clases": 3,
+  "num_muestras": 83,
+  "feature_dim": 1024,
+  "sample_rate": 16000,
+  "clases": [
+    "TRAFICOPESADO",
+    "Trafico",
+    "autos15s"
+  ]
+}

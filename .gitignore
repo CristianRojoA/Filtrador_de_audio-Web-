@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Modelos entrenados (muy pesados)
+modelo_personalizado/*.h5
+modelo_personalizado/*.keras
+modelo_personalizado/*.pb
+
+# Archivos de audio (muy pesados - opcional, puedes comentar si quieres subirlos)
+datos_entrenamiento/*.mp3
+datos_entrenamiento/*.wav
+datos_entrenamiento/**/*.mp3
+datos_entrenamiento/**/*.wav
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
