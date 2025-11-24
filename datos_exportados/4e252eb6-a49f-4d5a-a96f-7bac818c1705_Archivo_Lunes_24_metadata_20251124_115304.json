@@ -1,0 +1,524 @@
+{
+  "archivo": "4e252eb6-a49f-4d5a-a96f-7bac818c1705_Archivo_Lunes_24.mp3",
+  "ruta_completa": "uploads\\4e252eb6-a49f-4d5a-a96f-7bac818c1705_Archivo_Lunes_24.mp3",
+  "fecha_analisis": "2025-11-24T11:53:04.999417",
+  "ubicacion": {
+    "latitud": null,
+    "longitud": null,
+    "direccion": "Amunategui ",
+    "ciudad": "La Serena",
+    "pais": "Chile",
+    "notas_ubicacion": null
+  },
+  "grabacion": {
+    "fecha_grabacion": "2025-11-24",
+    "hora_grabacion": "11:53",
+    "duracion_segundos": null,
+    "calidad_audio": null
+  },
+  "condiciones": {
+    "clima": "nublado",
+    "temperatura": null,
+    "hora_dia": null,
+    "dia_semana": null,
+    "trafico_estimado": "Mucho_Trafico"
+  },
+  "analisis": {
+    "clasificacion": "Mucho_Trafico",
+    "confianza": null,
+    "detecciones_temporales": [
+      {
+        "tiempo": 0,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 3,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 4,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 5,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 6,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 8,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 9,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 12,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 14,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 16,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 18,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 19,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 30,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 32,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 35,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 38,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 39,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 46,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 48,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 50,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 51,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 53,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 56,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 59,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 67,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 69,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 71,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 73,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 74,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 75,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 80,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 81,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 84,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 92,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 93,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 96,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 99,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 100,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 101,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 102,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 104,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 106,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 110,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 112,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 115,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 116,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 117,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 120,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 125,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 126,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 129,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 130,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 133,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 134,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 139,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 140,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 142,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 143,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 146,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 147,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 148,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 156,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 157,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 159,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 162,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 164,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 165,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 166,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 167,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 169,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 171,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 173,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 175,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 179,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 180,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 201,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 202,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 206,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 216,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 230,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 231,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 233,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 234,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 244,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 247,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 248,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 251,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 254,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 256,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 259,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 260,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 262,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 275,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 279,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 280,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 291,
+        "clase": "Poco_Trafico",
+        "confianza": null
+      },
+      {
+        "tiempo": 293,
+        "clase": "Mucho_Trafico",
+        "confianza": null
+      }
+    ],
+    "recomendaciones": []
+  },
+  "dispositivo": {
+    "tipo": "telefono",
+    "marca_modelo": "Xiaomi 14T",
+    "sample_rate": null
+  },
+  "notas": null
+}

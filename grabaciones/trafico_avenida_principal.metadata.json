@@ -1,0 +1,57 @@
+{
+  "archivo": "trafico_avenida_principal.wav",
+  "ruta_completa": "grabaciones/trafico_avenida_principal.wav",
+  "fecha_analisis": "2025-11-18T19:57:21.480859",
+  "ubicacion": {
+    "latitud": -33.4489,
+    "longitud": -70.6693,
+    "direccion": "Av. Libertador Bernardo O'Higgins 1234, esquina con Av. Bulnes",
+    "ciudad": "Santiago",
+    "pais": "Chile",
+    "notas_ubicacion": "Intersección con alto flujo vehicular. Zona comercial cerca del Metro Los Héroes."
+  },
+  "grabacion": {
+    "fecha_grabacion": "2025-11-18",
+    "hora_grabacion": "14:30",
+    "duracion_segundos": 30.5,
+    "calidad_audio": "alta"
+  },
+  "condiciones": {
+    "clima": "soleado",
+    "temperatura": 28,
+    "hora_dia": "tarde",
+    "dia_semana": "lunes",
+    "trafico_estimado": "alto"
+  },
+  "analisis": {
+    "clasificacion": "Mucho_Trafico",
+    "confianza": 0.92,
+    "detecciones_temporales": [
+      {
+        "tiempo": 0.0,
+        "clase": "Mucho_Trafico",
+        "confianza": 0.95
+      },
+      {
+        "tiempo": 2.0,
+        "clase": "Mucho_Trafico",
+        "confianza": 0.89
+      },
+      {
+        "tiempo": 4.0,
+        "clase": "autos15s",
+        "confianza": 0.91
+      }
+    ],
+    "recomendaciones": [
+      "Considerar instalación de semáforo según Manual de Señalización (Pág. 166)",
+      "Alto volumen de tráfico detectado consistentemente"
+    ]
+  },
+  "dispositivo": {
+    "tipo": "celular",
+    "marca_modelo": "Samsung Galaxy S21",
+    "sample_rate": 44100
+  },
+  "notas": "Grabación realizada durante hora punta. Se observó congestión vehicular. Varios vehículos de transporte público. Ruido de fondo moderado de peatones."
+}

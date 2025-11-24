@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 Clasificador de Audio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v={{ cache_buster }}">
+    <style>
+        /* Modal de Bienvenida */
+        .welcome-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease-in;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .welcome-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .welcome-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.4s ease-out;
+            text-align: center;
+            margin: auto;
+        }
+
+        .welcome-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .welcome-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-steps {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .welcome-step {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .welcome-step::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            background: rgba(255, 255, 255, 0.2);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .welcome-step strong {
+            color: #ffd700;
+        }
+
+        .welcome-buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-welcome {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-primary-welcome {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary-welcome:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary-welcome {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary-welcome:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .welcome-content {
+                padding: 25px 20px;
+                border-radius: 15px;
+            }
+
+            .welcome-content h2 {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+
+            .welcome-icon {
+                font-size: 48px;
+                margin-bottom: 15px;
+            }
+
+            .welcome-content > p {
+                font-size: 16px !important;
+                margin-bottom: 15px !important;
+            }
+
+            .welcome-steps {
+                padding: 20px 15px;
+                margin: 20px 0;
+            }
+
+            .welcome-steps h3 {
+                font-size: 18px !important;
+                margin-bottom: 12px !important;
+            }
+
+            .welcome-step {
+                margin: 12px 0;
+                padding-left: 35px;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            .welcome-step::before {
+                width: 22px;
+                height: 22px;
+                font-size: 14px;
+            }
+
+            .welcome-buttons {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 20px;
+            }
+
+            .btn-welcome {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 15px;
+            }
+
+            .welcome-content > p:last-of-type {
+                font-size: 13px !important;
+                margin-top: 15px !important;
+            }
+        }
+
+        /* Para pantallas muy pequeñas */
+        @media (max-width: 480px) {
+            .welcome-modal {
+                padding: 10px;
+            }
+
+            .welcome-content {
+                padding: 20px 15px;
+            }
+
+            .welcome-content h2 {
+                font-size: 20px;
+            }
+
+            .welcome-icon {
+                font-size: 40px;
+            }
+
+            .welcome-steps h3 {
+                font-size: 16px !important;
+            }
+
+            .welcome-step {
+                font-size: 13px;
+                padding-left: 30px;
+            }
+        }
+
+        /* Mejoras táctiles */
+        @media (hover: none) and (pointer: coarse) {
+            .btn-welcome {
+                -webkit-tap-highlight-color: rgba(102, 126, 234, 0.3);
+                touch-action: manipulation;
+            }
+
+            .btn-welcome:active {
+                transform: scale(0.98);
+            }
+        }
+
+        /* Botón flotante de ayuda */
+        .help-float-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .help-float-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .help-float-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .help-icon {
+            font-size: 20px;
+            animation: wave 2s infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            40% { transform: rotate(0deg); }
+        }
+
+        @media (max-width: 768px) {
+            .help-float-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .help-icon {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal de Bienvenida -->
+    <div id="welcomeModal" class="welcome-modal">
+        <div class="welcome-content">
+            <div class="welcome-icon">👋</div>
+            <h2>¡Bienvenido al Filtrador de Audio!</h2>
+            <p style="font-size: 18px; margin-bottom: 20px;">
+                Sistema inteligente de análisis y clasificación de audio usando Machine Learning
+            </p>
+            
+            <div class="welcome-steps">
+                <h3 style="margin-bottom: 15px; color: #ffd700;">📖 Cómo funciona:</h3>
+                
+                <div class="welcome-step">
+                    <strong>1. Entrenar el Modelo:</strong> Entrena la IA con nuestros audios seleccionados para una mejor precisión.
+                </div>
+                
+                <div class="welcome-step">
+                    <strong>2. Identificar Audios:</strong> Una vez entrenado, el sistema puede analizar nuevos audios y clasificarlos automáticamente.
+                </div>
+                
+                <div class="welcome-step">
+                    <strong>3. Análisis SFFT:</strong> Visualiza el espectrograma de tus audios para análisis técnico detallado.
+                </div>
+                
+                <div class="welcome-step">
+                    <strong>4. Separar Audio:</strong> Filtra componentes específicos del audio y expórtalos por separado.
+                </div>
+            </div>
+
+            <p style="font-size: 14px; margin-top: 20px; opacity: 0.9;">
+                💡 <strong>Consejo:</strong> Comienza entrenando un modelo antes de intentar identificar audios
+            </p>
+
+            <div class="welcome-buttons">
+                <button class="btn-welcome btn-primary-welcome" onclick="closeWelcome()">¡Comenzar!</button>
+                <button class="btn-welcome btn-secondary-welcome" onclick="closeWelcome(true)">No mostrar de nuevo</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1>🎵 Filtrador de Audio</h1>
+            <p>Sistema de Machine Learning para Análisis de Audio</p>
+        </header>
+
+        <main class="main-content">
+            <h2>¿Qué deseas hacer?</h2>
+            
+            <div class="options-grid">
+                <a href="/entrenar" class="option-card">
+                    <div class="card-icon">🧠</div>
+                    <h3>Entrenar Modelo</h3>
+                    <p>Entrena la IA antes de poder identificar tus audios</p>
+                </a>
+
+                <a href="/identificar" class="option-card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Identificar Audio</h3>
+                    <p>Analiza audios con un modelo entrenado</p>
+                </a>
+
+                <a href="/fft" class="option-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Análisis de audio</h3>
+                    <p>Visualiza el espectrograma del audio</p>
+                </a>
+
+                <a href="/separar" class="option-card">
+                    <div class="card-icon">🎵</div>
+                    <h3>Separar Audio</h3>
+                    <p>Filtra y exporta componentes</p>
+                </a>
+
+                <a href="/importar" class="option-card">
+                    <div class="card-icon">📥</div>
+                    <h3>Analizar Datos</h3>
+                    <p>Visualiza análisis exportados</p>
+                </a>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>💡 Consejo: Comienza entrenando un modelo con nuestros archivos seleccionados antes de intentar identificar audios </p>
+        </footer>
+    </div>
+
+    <!-- Botón flotante de ayuda -->
+    <button class="help-float-btn" onclick="openWelcome()">
+        <span class="help-icon">👋</span>
+        <span>¿Necesitas ayuda?</span>
+    </button>
+
+    <script>
+        // Gestión del modal de bienvenida
+        window.addEventListener('DOMContentLoaded', function() {
+            // Verificar si el usuario ya vio la bienvenida
+            const hasSeenWelcome = localStorage.getItem('hasSeenWelcome');
+            
+            if (!hasSeenWelcome) {
+                document.getElementById('welcomeModal').classList.add('active');
+            }
+        });
+
+        function closeWelcome(dontShowAgain = false) {
+            const modal = document.getElementById('welcomeModal');
+            modal.classList.remove('active');
+            
+            if (dontShowAgain) {
+                localStorage.setItem('hasSeenWelcome', 'true');
+            }
+        }
+
+        function openWelcome() {
+            const modal = document.getElementById('welcomeModal');
+            modal.classList.add('active');
+        }
+
+        // Cerrar modal al hacer clic fuera de él
+        document.getElementById('welcomeModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeWelcome();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrenar Modelo - Sistema de Detección</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Entrenar Modelo Personalizado</h1>
+            <button class="btn btn-secondary" onclick="location.href='/'">⬅️ Volver al Menú</button>
+        </header>
+
+        <main>
+            <div class="panel">
+                <h2>📚 Carpeta de Entrenamiento</h2>
+                <p>Carpeta actual: <code id="carpetaActual">datos_entrenamiento/</code></p>
+                <div class="form-group">
+                    <label for="carpetaEntrenamiento">📂 Seleccionar carpeta:</label>
+                    <input type="text" id="carpetaEntrenamiento" value="datos_entrenamiento" class="input-field">
+                    <button class="btn btn-primary" onclick="listarClases()">🔍 Ver Clases</button>
+                </div>
+                
+                <div id="clasesInfo" class="info-box"></div>
+            </div>
+
+            <div class="panel">
+                <h2>🚀 Iniciar Entrenamiento</h2>
+                
+                <input type="hidden" id="numEstimadores" value="100">
+                <input type="hidden" id="maxProfundidad" value="20">
+                <input type="hidden" id="testSize" value="20">
+                
+                <button class="btn btn-primary btn-large" onclick="iniciarEntrenamiento()">
+                    🎯 Entrenar Modelo
+                </button>
+                
+                <div id="progresoEntrenamiento" class="progress-container" style="display:none;">
+                    <div class="progress-bar">
+                        <div id="progressBar" class="progress-fill"></div>
+                    </div>
+                    <p id="progresoTexto">Iniciando entrenamiento...</p>
+                </div>
+                
+                <div id="resultadosEntrenamiento" class="results-box"></div>
+            </div>
+
+            <div class="panel">
+                <h2>📊 Modelo Actual</h2>
+                <button class="btn btn-secondary" onclick="verInfoModelo()">ℹ️ Ver Información del Modelo</button>
+                <button class="btn btn-secondary" onclick="analizarCarpeta()">📁 Analizar Carpeta</button>
+                
+                <div id="infoModelo" class="info-box"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/entrenar.js') }}"></script>
+</body>
+</html>

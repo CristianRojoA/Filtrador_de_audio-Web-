@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Identificar Audio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Modal de Alerta de Tráfico */
+        .alert-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease-in;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .alert-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .alert-content {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            animation: slideIn 0.4s ease-out;
+            text-align: center;
+            margin: auto;
+        }
+
+        .alert-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .alert-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .alert-details {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .alert-item {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .alert-item::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+
+        .alert-buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-alert {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-primary-alert {
+            background: white;
+            color: #ee5a24;
+        }
+
+        .btn-primary-alert:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @media (max-width: 768px) {
+            .alert-content {
+                padding: 25px 20px;
+            }
+            .alert-content h2 {
+                font-size: 24px;
+            }
+            .alert-icon {
+                font-size: 48px;
+            }
+            .alert-item {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal de Alerta de Tráfico -->
+    <div id="alertModal" class="alert-modal">
+        <div class="alert-content">
+            <div class="alert-icon">⚠️</div>
+            <h2>URGENTE: Se recomienda instalación de semáforo</h2>
+            
+            <div class="alert-details">
+                <div style="margin-bottom: 15px; font-weight: bold;">
+                    Cumple con:
+                </div>
+                
+                <div class="alert-item">
+                    Inciso A del manual de Señalización (Pág 166)
+                </div>
+                
+                <div class="alert-item">
+                    Alto flujo vehicular sostenido durante hora punta
+                </div>
+            </div>
+
+            <div class="alert-buttons">
+                <button class="btn-alert btn-primary-alert" onclick="closeAlert()">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1>🎯 Identificar Audio</h1>
+            <button class="btn btn-secondary" onclick="location.href='/'">⬅️ Volver al Menú</button>
+        </header>
+
+        <main class="main-content">
+            <div class="panel">
+                <h2>🎤 Seleccionar Fuente de Audio</h2>
+                
+                <div class="audio-source-tabs">
+                    <button class="source-tab active" onclick="cambiarFuente('archivo')">📁 Cargar Archivo</button>
+                    <button class="source-tab" onclick="cambiarFuente('microfono')">🎙️ Grabar con Micrófono</button>
+                </div>
+                
+                <div id="fuenteArchivo" class="source-content active">
+                    <input type="file" id="audioFile" accept=".wav,.mp3,.flac,.ogg" class="file-input">
+                    <div id="fileName" class="file-name">Ningún archivo seleccionado</div>
+                </div>
+                
+                <div id="fuenteMicrofono" class="source-content" style="display:none;">
+                    <div style="text-align: center; padding: 20px;">
+                        <button id="btnGrabar" onclick="iniciarGrabacion()" class="btn btn-primary" style="margin: 10px;">
+                            🎙️ Iniciar Grabación
+                        </button>
+                        <button id="btnDetener" onclick="detenerGrabacion()" class="btn btn-warning" style="margin: 10px; display:none;">
+                            ⏹️ Detener Grabación
+                        </button>
+                        <div id="tiempoGrabacion" style="font-size: 1.5em; margin: 20px 0; color: #667eea; font-weight: bold;"></div>
+                        <div id="estadoGrabacion" style="color: #666; margin: 10px 0;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>⚙️ Configuración</h2>
+                <label>Ventana de análisis (segundos):</label>
+                <input type="number" id="ventana" value="2.0" min="0.5" max="10" step="0.5" class="input-field">
+                <small>💡 Recomendado: 1.0 - 3.0</small>
+            </div>
+
+            <div class="panel">
+                <h2>🎯 Acciones</h2>
+                <button onclick="predecirSimple()" class="btn btn-primary">🎵 Predicción Simple</button>
+                <button onclick="predecirTemporal()" class="btn btn-success">⏰ Análisis Temporal</button>
+                <button onclick="exportarJSON()" class="btn btn-warning" id="btnExportar" disabled>💾 Exportar JSON</button>
+            </div>
+
+            <div class="panel">
+                <h2>📋 Resultados</h2>
+                <div id="resultados" class="results-area"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/identificar.js') }}"></script>
+</body>
+</html>

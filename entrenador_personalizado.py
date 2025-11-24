@@ -541,89 +541,279 @@ class EntrenadorPersonalizado:
         
         return resultado
 
-def main():
-    """Función principal interactiva"""
-    print("🎯 ENTRENADOR DE CLASIFICADOR PERSONALIZADO")
-    print("="*60)
-    print("🚀 ¡Entrena tu propio clasificador de sonidos urbanos!")
-    print()
-    
-    entrenador = EntrenadorPersonalizado()
-    
-    while True:
-        print("\n🔧 ¿QUÉ QUIERES HACER?")
-        print("="*40)
-        print("1️⃣ 📁 Crear estructura de carpetas")
-        print("2️⃣ 🔍 Verificar datos disponibles")
-        print("3️⃣ 🧠 Entrenar nuevo modelo")
-        print("4️⃣ 📂 Cargar modelo existente")
-        print("5️⃣ 🎵 Predecir archivo de audio")
-        print("6️⃣ 📊 Ver modelos guardados")
-        print("7️⃣ 🚪 Salir")
+    def predecir_audio_temporal(self, audio_path, ventana_segundos=2.0, solapamiento=0.5):
+        """
+        Predice la clase del audio en diferentes momentos temporales
         
+        Args:
+            audio_path: Ruta del archivo de audio
+            ventana_segundos: Tamaño de la ventana de análisis en segundos
+            solapamiento: Fracción de solapamiento entre ventanas (0.0 a 1.0)
+        
+        Returns:
+            Lista de detecciones con timestamps
+        """
+        if not hasattr(self, 'modelo'):
+            print("❌ Modelo no cargado. Usa cargar_modelo_entrenado() primero")
+            return None
+        
+        if not os.path.exists(audio_path):
+            print(f"❌ Archivo no encontrado: {audio_path}")
+            return None
+        
+        print(f"\n🎵 ANÁLISIS TEMPORAL DE AUDIO")
+        print(f"="*60)
+        print(f"📁 Archivo: {os.path.basename(audio_path)}")
+        
+        # Cargar audio completo
         try:
-            opcion = input("\n👉 Elige una opción (1-7): ").strip()
-            
-            if opcion == "1":
-                categorias = entrenador.crear_estructura_datos()
-                print(f"\n✅ ¡Estructura creada! Ahora agrega archivos a las {len(categorias)} carpetas")
-                
-            elif opcion == "2":
-                entrenador.verificar_datos()
-                
-            elif opcion == "3":
-                print("\n🧠 Iniciando entrenamiento...")
-                if entrenador.entrenar_modelo():
-                    print("\n🎉 ¡Modelo entrenado exitosamente!")
-                else:
-                    print("\n😞 El entrenamiento falló")
-                    
-            elif opcion == "4":
-                if entrenador.cargar_modelo_entrenado():
-                    print("\n✅ ¡Modelo cargado y listo para usar!")
-                else:
-                    print("\n😞 No se pudo cargar el modelo")
-                    
-            elif opcion == "5":
-                if not hasattr(entrenador, 'modelo'):
-                    print("⚠️ Primero debes cargar un modelo (opción 4)")
-                    continue
-                    
-                archivo = input("📁 Ruta del archivo de audio: ").strip().strip('"')
-                if archivo and os.path.exists(archivo):
-                    resultado = entrenador.predecir_audio(archivo)
-                    if resultado:
-                        print(f"\n🎯 ¡Predicción completada!")
-                else:
-                    print("❌ Archivo no encontrado")
-                    
-            elif opcion == "6":
-                modelo_dir = "modelo_personalizado"
-                if os.path.exists(modelo_dir):
-                    modelos = [f for f in os.listdir(modelo_dir) if f.startswith('clasificador_')]
-                    if modelos:
-                        print(f"\n📊 Modelos guardados ({len(modelos)}):")
-                        for i, modelo in enumerate(sorted(modelos), 1):
-                            timestamp = modelo.replace('clasificador_', '').replace('.pkl', '')
-                            fecha = datetime.strptime(timestamp, "%Y%m%d_%H%M%S")
-                            print(f"   [{i}] {modelo} (creado: {fecha.strftime('%Y-%m-%d %H:%M')})")
-                    else:
-                        print("📭 No hay modelos guardados")
-                else:
-                    print("📭 No existe directorio de modelos")
-                    
-            elif opcion == "7":
-                print("\n👋 ¡Hasta luego! Happy coding! 🚀")
-                break
-                
-            else:
-                print("❌ Opción inválida. Usa números 1-7")
-                
-        except KeyboardInterrupt:
-            print("\n\n👋 ¡Hasta luego!")
-            break
+            audio, sr = librosa.load(audio_path, sr=self.sample_rate)
+            duracion_total = len(audio) / sr
+            print(f"⏱️  Duración total: {duracion_total:.2f} segundos")
+            print(f"🔍 Ventana de análisis: {ventana_segundos} segundos")
+            print(f"📊 Analizando...\n")
         except Exception as e:
-            print(f"\n❌ Error inesperado: {e}")
+            print(f"❌ Error cargando audio: {e}")
+            return None
+        
+        # Calcular parámetros de ventanas
+        ventana_samples = int(ventana_segundos * sr)
+        paso_samples = int(ventana_samples * (1 - solapamiento))
+        
+        detecciones = []
+        segmentos_analizados = 0
+        
+        # Analizar por ventanas
+        for inicio_sample in range(0, len(audio) - ventana_samples, paso_samples):
+            fin_sample = inicio_sample + ventana_samples
+            segmento = audio[inicio_sample:fin_sample]
+            
+            # Tiempo en segundos
+            tiempo_inicio = inicio_sample / sr
+            tiempo_fin = fin_sample / sr
+            
+            # Extraer características del segmento
+            try:
+                # Guardar segmento temporal
+                import tempfile
+                with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as tmp:
+                    import soundfile as sf
+                    sf.write(tmp.name, segmento, sr)
+                    tmp_path = tmp.name
+                
+                # Extraer características
+                features = self.extraer_caracteristicas_yamnet(tmp_path)
+                os.unlink(tmp_path)  # Eliminar archivo temporal
+                
+                if features is not None:
+                    # Predecir
+                    features_reshaped = features.reshape(1, -1)
+                    prediccion = self.modelo.predict(features_reshaped)[0]
+                    probabilidades = self.modelo.predict_proba(features_reshaped)[0]
+                    
+                    clase_predicha = self.class_names[prediccion]
+                    confianza = probabilidades[prediccion]
+                    
+                    # Guardar detección
+                    deteccion = {
+                        'tiempo_inicio': tiempo_inicio,
+                        'tiempo_fin': tiempo_fin,
+                        'clase': clase_predicha,
+                        'confianza': confianza,
+                        'probabilidades': {
+                            self.class_names[i]: prob 
+                            for i, prob in enumerate(probabilidades)
+                        }
+                    }
+                    detecciones.append(deteccion)
+                    segmentos_analizados += 1
+                    
+            except Exception as e:
+                print(f"⚠️ Error en segmento {tiempo_inicio:.1f}s - {tiempo_fin:.1f}s: {e}")
+        
+        print(f"✅ Análisis completado: {segmentos_analizados} segmentos analizados\n")
+        
+        # Agrupar detecciones consecutivas de la misma clase
+        detecciones_agrupadas = self._agrupar_detecciones(detecciones)
+        
+        # Mostrar resultados
+        self._mostrar_linea_temporal(detecciones_agrupadas, duracion_total)
+        
+        return {
+            'detecciones': detecciones,
+            'detecciones_agrupadas': detecciones_agrupadas,
+            'duracion_total': duracion_total,
+            'archivo': os.path.basename(audio_path)
+        }
+    
+    def _agrupar_detecciones(self, detecciones, umbral_confianza=0.4):
+        """
+        Agrupa detecciones consecutivas de la misma clase
+        
+        Args:
+            detecciones: Lista de detecciones individuales
+            umbral_confianza: Confianza mínima para considerar una detección
+        
+        Returns:
+            Lista de detecciones agrupadas
+        """
+        if not detecciones:
+            return []
+        
+        # Filtrar por confianza
+        detecciones_filtradas = [d for d in detecciones if d['confianza'] >= umbral_confianza]
+        
+        if not detecciones_filtradas:
+            return []
+        
+        agrupadas = []
+        grupo_actual = {
+            'clase': detecciones_filtradas[0]['clase'],
+            'tiempo_inicio': detecciones_filtradas[0]['tiempo_inicio'],
+            'tiempo_fin': detecciones_filtradas[0]['tiempo_fin'],
+            'confianza_promedio': detecciones_filtradas[0]['confianza'],
+            'num_segmentos': 1
+        }
+        
+        for deteccion in detecciones_filtradas[1:]:
+            # Si es la misma clase y es consecutiva, extender el grupo
+            if (deteccion['clase'] == grupo_actual['clase'] and 
+                deteccion['tiempo_inicio'] - grupo_actual['tiempo_fin'] < 0.5):
+                
+                grupo_actual['tiempo_fin'] = deteccion['tiempo_fin']
+                grupo_actual['confianza_promedio'] = (
+                    (grupo_actual['confianza_promedio'] * grupo_actual['num_segmentos'] + 
+                     deteccion['confianza']) / (grupo_actual['num_segmentos'] + 1)
+                )
+                grupo_actual['num_segmentos'] += 1
+            else:
+                # Guardar grupo actual y empezar uno nuevo
+                agrupadas.append(grupo_actual.copy())
+                grupo_actual = {
+                    'clase': deteccion['clase'],
+                    'tiempo_inicio': deteccion['tiempo_inicio'],
+                    'tiempo_fin': deteccion['tiempo_fin'],
+                    'confianza_promedio': deteccion['confianza'],
+                    'num_segmentos': 1
+                }
+        
+        # Añadir último grupo
+        agrupadas.append(grupo_actual)
+        
+        return agrupadas
+    
+    def _mostrar_linea_temporal(self, detecciones_agrupadas, duracion_total):
+        """
+        Muestra una línea temporal visual de las detecciones
+        
+        Args:
+            detecciones_agrupadas: Lista de detecciones agrupadas
+            duracion_total: Duración total del audio
+        """
+        print(f"⏰ LÍNEA TEMPORAL DE EVENTOS")
+        print(f"="*60)
+        
+        if not detecciones_agrupadas:
+            print("⚠️ No se detectaron eventos con suficiente confianza")
+            return
+        
+        # Emojis por categoría (personalizable)
+        emojis = {
+            'autos': '🚗',
+            'trafico': '🚦',
+            'traficopesado': '🚛',
+            'default': '🔊'
+        }
+        
+        for i, det in enumerate(detecciones_agrupadas, 1):
+            tiempo_inicio = self._formatear_tiempo(det['tiempo_inicio'])
+            tiempo_fin = self._formatear_tiempo(det['tiempo_fin'])
+            duracion = det['tiempo_fin'] - det['tiempo_inicio']
+            
+            # Obtener emoji apropiado
+            clase_lower = det['clase'].lower()
+            emoji = emojis.get(clase_lower, emojis['default'])
+            
+            # Barra visual de confianza
+            confianza_pct = det['confianza_promedio']
+            barra_len = int(confianza_pct * 20)
+            barra = '█' * barra_len + '░' * (20 - barra_len)
+            
+            print(f"\n{i}. {emoji} {det['clase'].upper()}")
+            print(f"   ⏱️  {tiempo_inicio} → {tiempo_fin} ({duracion:.1f}s)")
+            print(f"   📊 Confianza: {barra} {confianza_pct:.1%}")
+        
+        print(f"\n{'='*60}")
+        print(f"📈 Total de eventos detectados: {len(detecciones_agrupadas)}")
+        print(f"⏱️  Duración del audio: {self._formatear_tiempo(duracion_total)}")
+    
+    def _formatear_tiempo(self, segundos):
+        """
+        Formatea segundos a formato MM:SS
+        
+        Args:
+            segundos: Tiempo en segundos
+        
+        Returns:
+            String formateado (ej: "01:23")
+        """
+        minutos = int(segundos // 60)
+        segs = int(segundos % 60)
+        return f"{minutos:02d}:{segs:02d}"
+    
+    def exportar_detecciones_json(self, resultado, output_path=None):
+        """
+        Exporta las detecciones a un archivo JSON
+        
+        Args:
+            resultado: Resultado del análisis temporal
+            output_path: Ruta de salida (opcional)
+        
+        Returns:
+            Ruta del archivo generado
+        """
+        if output_path is None:
+            # Crear carpeta datos_exportados si no existe
+            export_dir = "datos_exportados"
+            os.makedirs(export_dir, exist_ok=True)
+            
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            nombre_archivo = resultado.get('archivo', 'audio').replace('.wav', '').replace('.mp3', '')
+            output_path = os.path.join(
+                export_dir, 
+                f"detecciones_{nombre_archivo}_{timestamp}.json"
+            )
+        
+        # Obtener detecciones (puede venir como 'detecciones' o 'detecciones_agrupadas')
+        detecciones = resultado.get('detecciones_agrupadas') or resultado.get('detecciones', [])
+        
+        if not detecciones:
+            raise ValueError("No hay detecciones para exportar")
+        
+        # Preparar datos para JSON con campos normalizados
+        detecciones_normalizadas = []
+        for det in detecciones:
+            det_normalizada = {
+                'clase': det['clase'],
+                'tiempo_inicio': det['tiempo_inicio'],
+                'tiempo_fin': det['tiempo_fin'],
+                'duracion': det['tiempo_fin'] - det['tiempo_inicio'],
+                'confianza': det.get('confianza_promedio', det.get('confianza', 0)),
+                'num_segmentos': det.get('num_segmentos', 1)
+            }
+            detecciones_normalizadas.append(det_normalizada)
+        
+        datos_export = {
+            'archivo': resultado['archivo'],
+            'duracion_total': resultado['duracion_total'],
+            'fecha_analisis': datetime.now().isoformat(),
+            'detecciones_agrupadas': detecciones_normalizadas
+        }
+        
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(datos_export, f, indent=2, ensure_ascii=False)
+        
+        print(f"💾 Detecciones exportadas a: {output_path}")
+        return output_path
 
-if __name__ == "__main__":
-    main()
+

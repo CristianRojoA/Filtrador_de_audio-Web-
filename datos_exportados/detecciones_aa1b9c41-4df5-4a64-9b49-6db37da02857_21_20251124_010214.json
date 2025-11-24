@@ -1,0 +1,15 @@
+{
+  "archivo": "aa1b9c41-4df5-4a64-9b49-6db37da02857_21.mp3",
+  "duracion_total": 5.496,
+  "fecha_analisis": "2025-11-24T01:02:14.402572",
+  "detecciones_agrupadas": [
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 0.0,
+      "tiempo_fin": 5.0,
+      "duracion": 5.0,
+      "confianza": 0.86,
+      "num_segmentos": 4
+    }
+  ]
+}

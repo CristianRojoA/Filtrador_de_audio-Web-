@@ -1,0 +1,112 @@
+{
+  "archivo": "CALLE.mp3",
+  "duracion_total": 60.245375,
+  "fecha_analisis": "2025-11-18T20:37:59.725569",
+  "detecciones_agrupadas": [
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 0.0,
+      "tiempo_fin": 4.0,
+      "confianza_promedio": 0.5966666666666667,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 3.0,
+      "tiempo_fin": 5.0,
+      "confianza_promedio": 0.6,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 4.0,
+      "tiempo_fin": 8.0,
+      "confianza_promedio": 0.7033333333333333,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 7.0,
+      "tiempo_fin": 17.0,
+      "confianza_promedio": 0.6255555555555556,
+      "num_segmentos": 9
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 16.0,
+      "tiempo_fin": 21.0,
+      "confianza_promedio": 0.6950000000000001,
+      "num_segmentos": 4
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 20.0,
+      "tiempo_fin": 25.0,
+      "confianza_promedio": 0.645,
+      "num_segmentos": 4
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 24.0,
+      "tiempo_fin": 32.0,
+      "confianza_promedio": 0.6385714285714285,
+      "num_segmentos": 7
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 31.0,
+      "tiempo_fin": 36.0,
+      "confianza_promedio": 0.5375000000000001,
+      "num_segmentos": 4
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 35.0,
+      "tiempo_fin": 40.0,
+      "confianza_promedio": 0.56,
+      "num_segmentos": 4
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 39.0,
+      "tiempo_fin": 42.0,
+      "confianza_promedio": 0.5900000000000001,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 41.0,
+      "tiempo_fin": 48.0,
+      "confianza_promedio": 0.6849999999999999,
+      "num_segmentos": 6
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 47.0,
+      "tiempo_fin": 54.0,
+      "confianza_promedio": 0.6466666666666666,
+      "num_segmentos": 6
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 53.0,
+      "tiempo_fin": 55.0,
+      "confianza_promedio": 0.55,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 54.0,
+      "tiempo_fin": 59.0,
+      "confianza_promedio": 0.6225,
+      "num_segmentos": 4
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 58.0,
+      "tiempo_fin": 60.0,
+      "confianza_promedio": 0.51,
+      "num_segmentos": 1
+    }
+  ]
+}

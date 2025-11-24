@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importar Datos - Sistema de Detección</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📥 Importar y Visualizar Datos Exportados</h1>
+            <button class="btn btn-secondary" onclick="location.href='/'">⬅️ Volver al Menú</button>
+        </header>
+
+        <main>
+            <div class="panel">
+                <h2>📁 Seleccionar Archivo JSON</h2>
+                <div class="form-group">
+                    <label for="jsonFile" class="file-label">
+                        📂 Cargar archivo de datos exportados
+                    </label>
+                    <input type="file" id="jsonFile" accept=".json" class="file-input">
+                    <p id="fileName" class="file-name">Ningún archivo seleccionado</p>
+                </div>
+                
+                <button class="btn btn-primary" onclick="cargarJSON()">
+                    📥 Cargar y Analizar
+                </button>
+            </div>
+
+            <div class="panel">
+                <h2>📂 Archivos Disponibles</h2>
+                <button class="btn btn-secondary" onclick="listarArchivos()">
+                    🔍 Ver archivos en datos_exportados/
+                </button>
+                
+                <div id="listaArchivos" class="files-list"></div>
+            </div>
+
+            <div class="panel" id="panelResultados" style="display:none;">
+                <h2>📊 Datos Importados</h2>
+                
+                <div class="tabs" id="tabsContainer">
+                    <button class="tab-btn active" id="tabBtnMetadatos" onclick="cambiarTab('metadatos')">📍 Metadatos</button>
+                    <button class="tab-btn" onclick="cambiarTab('json')">📄 JSON Crudo</button>
+                    <button class="btn btn-success" onclick="descargarMetadatos()" style="margin-left: auto;">
+                        💾 Descargar Metadatos
+                    </button>
+                </div>
+                
+                <div id="tabMetadatos" class="tab-content active">
+                    <div id="contenidoMetadatos"></div>
+                </div>
+                
+                <div id="tabJson" class="tab-content">
+                    <pre id="contenidoJson" class="json-view"></pre>
+                </div>
+            </div>
+
+            <div class="panel" id="panelEstadisticas" style="display:none;">
+                <h2>📈 Estadísticas</h2>
+                <div id="estadisticas" class="stats-container"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/importador.js') }}"></script>
+</body>
+</html>

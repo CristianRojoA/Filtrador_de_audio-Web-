@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Separador de Audio - Sistema de Detección</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v={{ cache_buster }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎚️ Separador de Audio por Frecuencias</h1>
+            <button class="btn btn-secondary" onclick="location.href='/'">⬅️ Volver al Menú</button>
+        </header>
+
+        <main>
+            <div class="panel">
+                <h2>📁 Cargar Audio</h2>
+                <div class="form-group">
+                    <label for="audioFileSeparador" class="file-label">
+                        📂 Seleccionar archivo de audio
+                    </label>
+                    <input type="file" id="audioFileSeparador" accept="audio/*" class="file-input">
+                    <p id="fileNameSeparador" class="file-name">Ningún archivo seleccionado</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>🎯 Selección de Frecuencias</h2>
+                
+                <div class="form-group">
+                    <label>Selecciona la clase de audio a aislar:</label>
+                    <div class="filter-modes">
+                        <label class="mode-card">
+                            <input type="radio" name="claseAudio" value="Mucho_Trafico" checked>
+                            <div class="mode-content">
+                                <div class="mode-icon">🚗🚛</div>
+                                <div class="mode-title">Mucho Tráfico</div>
+                                <div class="mode-desc">Frecuencias de mucho tráfico</div>
+                            </div>
+                        </label>
+                        
+                        <label class="mode-card">
+                            <input type="radio" name="claseAudio" value="Poco_Trafico">
+                            <div class="mode-content">
+                                <div class="mode-icon">🚙</div>
+                                <div class="mode-title">Poco Tráfico</div>
+                                <div class="mode-desc">Frecuencias de poco tráfico</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="info-box" style="margin-top: 20px;">
+                    <p><strong>ℹ️ ¿Cómo funciona?</strong></p>
+                    <p>1. El sistema usa las <strong>frecuencias aprendidas</strong> durante el entrenamiento</p>
+                    <p>2. Aplica <strong>SFFT</strong> para analizar el espectro del audio</p>
+                    <p>3. <strong>Aislar:</strong> Mantiene solo las frecuencias seleccionadas (elimina ruido de fondo)</p>
+                    <p>4. Usa <strong>ISFFT</strong> para reconstruir el audio procesado</p>
+                </div>
+
+                <button class="btn btn-primary btn-large" onclick="separarAudio()">
+                    🎚️ Aislar Frecuencias con ISFFT
+                </button>
+            </div>
+
+            <div class="panel">
+                <h2>📊 Resultados</h2>
+                <div id="resultadosSeparador" class="results-box">
+                    <p class="placeholder-text">Los resultados aparecerán aquí...</p>
+                </div>
+                
+                <div id="audioPlayer" style="display:none;">
+                    <h3>🔊 Reproducir Audio Filtrado</h3>
+                    <audio id="audioFiltrado" controls class="audio-player"></audio>
+                    <button class="btn btn-secondary" onclick="descargarAudio()">
+                        💾 Descargar Audio Filtrado
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>📈 Comparación de Espectros</h2>
+                <div id="comparacionEspectros" class="chart-container">
+                    <p class="placeholder-text">La comparación aparecerá después del filtrado...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/separador.js') }}?v={{ cache_buster }}"></script>
+</body>
+</html>

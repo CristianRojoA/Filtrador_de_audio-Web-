@@ -1,0 +1,783 @@
+{
+  "archivo": "93de159f-9207-48d0-bf2b-524b7f628a01_Archivo_Lunes_24.mp3",
+  "duracion_total": 301.704,
+  "fecha_analisis": "2025-11-24T10:48:14.808334",
+  "detecciones_agrupadas": [
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 0,
+      "tiempo_fin": 4,
+      "duracion": 4,
+      "confianza": 0.6133333333333333,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 3,
+      "tiempo_fin": 5,
+      "duracion": 2,
+      "confianza": 0.68,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 4,
+      "tiempo_fin": 6,
+      "duracion": 2,
+      "confianza": 0.53,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 5,
+      "tiempo_fin": 7,
+      "duracion": 2,
+      "confianza": 0.51,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 6,
+      "tiempo_fin": 9,
+      "duracion": 3,
+      "confianza": 0.5449999999999999,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 8,
+      "tiempo_fin": 10,
+      "duracion": 2,
+      "confianza": 0.54,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 9,
+      "tiempo_fin": 13,
+      "duracion": 4,
+      "confianza": 0.5866666666666668,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 12,
+      "tiempo_fin": 15,
+      "duracion": 3,
+      "confianza": 0.6299999999999999,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 14,
+      "tiempo_fin": 17,
+      "duracion": 3,
+      "confianza": 0.525,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 16,
+      "tiempo_fin": 19,
+      "duracion": 3,
+      "confianza": 0.56,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 18,
+      "tiempo_fin": 20,
+      "duracion": 2,
+      "confianza": 0.56,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 19,
+      "tiempo_fin": 31,
+      "duracion": 12,
+      "confianza": 0.5645454545454548,
+      "num_segmentos": 11
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 30,
+      "tiempo_fin": 33,
+      "duracion": 3,
+      "confianza": 0.78,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 32,
+      "tiempo_fin": 36,
+      "duracion": 4,
+      "confianza": 0.5833333333333334,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 35,
+      "tiempo_fin": 39,
+      "duracion": 4,
+      "confianza": 0.5166666666666667,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 38,
+      "tiempo_fin": 40,
+      "duracion": 2,
+      "confianza": 0.52,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 39,
+      "tiempo_fin": 47,
+      "duracion": 8,
+      "confianza": 0.6571428571428571,
+      "num_segmentos": 7
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 46,
+      "tiempo_fin": 49,
+      "duracion": 3,
+      "confianza": 0.53,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 48,
+      "tiempo_fin": 51,
+      "duracion": 3,
+      "confianza": 0.5900000000000001,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 50,
+      "tiempo_fin": 52,
+      "duracion": 2,
+      "confianza": 0.55,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 51,
+      "tiempo_fin": 54,
+      "duracion": 3,
+      "confianza": 0.6,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 53,
+      "tiempo_fin": 57,
+      "duracion": 4,
+      "confianza": 0.5266666666666667,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 56,
+      "tiempo_fin": 60,
+      "duracion": 4,
+      "confianza": 0.5399999999999999,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 59,
+      "tiempo_fin": 68,
+      "duracion": 9,
+      "confianza": 0.7075,
+      "num_segmentos": 8
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 67,
+      "tiempo_fin": 70,
+      "duracion": 3,
+      "confianza": 0.51,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 69,
+      "tiempo_fin": 72,
+      "duracion": 3,
+      "confianza": 0.795,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 71,
+      "tiempo_fin": 74,
+      "duracion": 3,
+      "confianza": 0.625,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 73,
+      "tiempo_fin": 75,
+      "duracion": 2,
+      "confianza": 0.57,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 74,
+      "tiempo_fin": 76,
+      "duracion": 2,
+      "confianza": 0.63,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 75,
+      "tiempo_fin": 81,
+      "duracion": 6,
+      "confianza": 0.5599999999999999,
+      "num_segmentos": 5
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 80,
+      "tiempo_fin": 82,
+      "duracion": 2,
+      "confianza": 0.59,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 81,
+      "tiempo_fin": 85,
+      "duracion": 4,
+      "confianza": 0.6266666666666666,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 84,
+      "tiempo_fin": 93,
+      "duracion": 9,
+      "confianza": 0.605,
+      "num_segmentos": 8
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 92,
+      "tiempo_fin": 94,
+      "duracion": 2,
+      "confianza": 0.51,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 93,
+      "tiempo_fin": 97,
+      "duracion": 4,
+      "confianza": 0.6066666666666667,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 96,
+      "tiempo_fin": 100,
+      "duracion": 4,
+      "confianza": 0.6366666666666666,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 99,
+      "tiempo_fin": 101,
+      "duracion": 2,
+      "confianza": 0.52,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 100,
+      "tiempo_fin": 102,
+      "duracion": 2,
+      "confianza": 0.52,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 101,
+      "tiempo_fin": 103,
+      "duracion": 2,
+      "confianza": 0.51,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 102,
+      "tiempo_fin": 105,
+      "duracion": 3,
+      "confianza": 0.665,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 104,
+      "tiempo_fin": 107,
+      "duracion": 3,
+      "confianza": 0.665,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 106,
+      "tiempo_fin": 111,
+      "duracion": 5,
+      "confianza": 0.5475000000000001,
+      "num_segmentos": 4
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 110,
+      "tiempo_fin": 113,
+      "duracion": 3,
+      "confianza": 0.56,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 112,
+      "tiempo_fin": 116,
+      "duracion": 4,
+      "confianza": 0.5466666666666667,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 115,
+      "tiempo_fin": 117,
+      "duracion": 2,
+      "confianza": 0.5,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 116,
+      "tiempo_fin": 118,
+      "duracion": 2,
+      "confianza": 0.62,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 117,
+      "tiempo_fin": 121,
+      "duracion": 4,
+      "confianza": 0.5166666666666667,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 120,
+      "tiempo_fin": 126,
+      "duracion": 6,
+      "confianza": 0.634,
+      "num_segmentos": 5
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 125,
+      "tiempo_fin": 127,
+      "duracion": 2,
+      "confianza": 0.59,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 126,
+      "tiempo_fin": 130,
+      "duracion": 4,
+      "confianza": 0.5566666666666668,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 129,
+      "tiempo_fin": 131,
+      "duracion": 2,
+      "confianza": 0.56,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 130,
+      "tiempo_fin": 134,
+      "duracion": 4,
+      "confianza": 0.5700000000000001,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 133,
+      "tiempo_fin": 135,
+      "duracion": 2,
+      "confianza": 0.55,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 134,
+      "tiempo_fin": 140,
+      "duracion": 6,
+      "confianza": 0.6659999999999999,
+      "num_segmentos": 5
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 139,
+      "tiempo_fin": 141,
+      "duracion": 2,
+      "confianza": 0.55,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 140,
+      "tiempo_fin": 143,
+      "duracion": 3,
+      "confianza": 0.55,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 142,
+      "tiempo_fin": 144,
+      "duracion": 2,
+      "confianza": 0.57,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 143,
+      "tiempo_fin": 147,
+      "duracion": 4,
+      "confianza": 0.6033333333333334,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 146,
+      "tiempo_fin": 148,
+      "duracion": 2,
+      "confianza": 0.55,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 147,
+      "tiempo_fin": 149,
+      "duracion": 2,
+      "confianza": 0.62,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 148,
+      "tiempo_fin": 157,
+      "duracion": 9,
+      "confianza": 0.5812499999999999,
+      "num_segmentos": 8
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 156,
+      "tiempo_fin": 158,
+      "duracion": 2,
+      "confianza": 0.58,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 157,
+      "tiempo_fin": 160,
+      "duracion": 3,
+      "confianza": 0.64,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 159,
+      "tiempo_fin": 163,
+      "duracion": 4,
+      "confianza": 0.8033333333333333,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 162,
+      "tiempo_fin": 165,
+      "duracion": 3,
+      "confianza": 0.595,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 164,
+      "tiempo_fin": 166,
+      "duracion": 2,
+      "confianza": 0.6,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 165,
+      "tiempo_fin": 167,
+      "duracion": 2,
+      "confianza": 0.6,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 166,
+      "tiempo_fin": 168,
+      "duracion": 2,
+      "confianza": 0.51,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 167,
+      "tiempo_fin": 170,
+      "duracion": 3,
+      "confianza": 0.53,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 169,
+      "tiempo_fin": 172,
+      "duracion": 3,
+      "confianza": 0.645,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 171,
+      "tiempo_fin": 174,
+      "duracion": 3,
+      "confianza": 0.67,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 173,
+      "tiempo_fin": 176,
+      "duracion": 3,
+      "confianza": 0.71,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 175,
+      "tiempo_fin": 180,
+      "duracion": 5,
+      "confianza": 0.5975,
+      "num_segmentos": 4
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 179,
+      "tiempo_fin": 181,
+      "duracion": 2,
+      "confianza": 0.53,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 180,
+      "tiempo_fin": 202,
+      "duracion": 22,
+      "confianza": 0.6071428571428571,
+      "num_segmentos": 21
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 201,
+      "tiempo_fin": 203,
+      "duracion": 2,
+      "confianza": 0.52,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 202,
+      "tiempo_fin": 207,
+      "duracion": 5,
+      "confianza": 0.5925,
+      "num_segmentos": 4
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 206,
+      "tiempo_fin": 217,
+      "duracion": 11,
+      "confianza": 0.651,
+      "num_segmentos": 10
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 216,
+      "tiempo_fin": 231,
+      "duracion": 15,
+      "confianza": 0.7057142857142855,
+      "num_segmentos": 14
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 230,
+      "tiempo_fin": 232,
+      "duracion": 2,
+      "confianza": 0.51,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 231,
+      "tiempo_fin": 234,
+      "duracion": 3,
+      "confianza": 0.54,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 233,
+      "tiempo_fin": 235,
+      "duracion": 2,
+      "confianza": 0.58,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 234,
+      "tiempo_fin": 245,
+      "duracion": 11,
+      "confianza": 0.581,
+      "num_segmentos": 10
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 244,
+      "tiempo_fin": 248,
+      "duracion": 4,
+      "confianza": 0.5366666666666667,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 247,
+      "tiempo_fin": 249,
+      "duracion": 2,
+      "confianza": 0.52,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 248,
+      "tiempo_fin": 252,
+      "duracion": 4,
+      "confianza": 0.6900000000000001,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 251,
+      "tiempo_fin": 255,
+      "duracion": 4,
+      "confianza": 0.6666666666666666,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 254,
+      "tiempo_fin": 257,
+      "duracion": 3,
+      "confianza": 0.6000000000000001,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 256,
+      "tiempo_fin": 260,
+      "duracion": 4,
+      "confianza": 0.59,
+      "num_segmentos": 3
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 259,
+      "tiempo_fin": 261,
+      "duracion": 2,
+      "confianza": 0.62,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 260,
+      "tiempo_fin": 263,
+      "duracion": 3,
+      "confianza": 0.535,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 262,
+      "tiempo_fin": 276,
+      "duracion": 14,
+      "confianza": 0.6646153846153846,
+      "num_segmentos": 13
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 275,
+      "tiempo_fin": 280,
+      "duracion": 5,
+      "confianza": 0.6325000000000001,
+      "num_segmentos": 4
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 279,
+      "tiempo_fin": 281,
+      "duracion": 2,
+      "confianza": 0.67,
+      "num_segmentos": 1
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 280,
+      "tiempo_fin": 292,
+      "duracion": 12,
+      "confianza": 0.64,
+      "num_segmentos": 11
+    },
+    {
+      "clase": "Poco_Trafico",
+      "tiempo_inicio": 291,
+      "tiempo_fin": 294,
+      "duracion": 3,
+      "confianza": 0.575,
+      "num_segmentos": 2
+    },
+    {
+      "clase": "Mucho_Trafico",
+      "tiempo_inicio": 293,
+      "tiempo_fin": 301,
+      "duracion": 8,
+      "confianza": 0.6428571428571429,
+      "num_segmentos": 7
+    }
+  ]
+}

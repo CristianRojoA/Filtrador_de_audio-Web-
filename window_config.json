@@ -1,0 +1,27 @@
+{
+  "start": {
+    "width": 700,
+    "height": 500,
+    "maximized": false
+  },
+  "training": {
+    "width": 1000,
+    "height": 750,
+    "maximized": true
+  },
+  "identify": {
+    "width": 900,
+    "height": 650,
+    "maximized": true
+  },
+  "fft": {
+    "width": 1200,
+    "height": 800,
+    "maximized": false
+  },
+  "separator": {
+    "width": 1200,
+    "height": 750,
+    "maximized": false
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de audio - Sistema de Detección</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v={{ cache_buster }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Análisis de audio</h1>
+            <button class="btn btn-secondary" onclick="location.href='/'">⬅️ Volver al Menú</button>
+        </header>
+
+        <main>
+            <div class="panel">
+                <h2>📁 Cargar Audio</h2>
+                <div class="form-group">
+                    <label for="audioFileFFT" class="file-label">
+                        📂 Seleccionar archivo de audio
+                    </label>
+                    <input type="file" id="audioFileFFT" accept="audio/*" class="file-input">
+                    <p id="fileNameFFT" class="file-name">Ningún archivo seleccionado</p>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>🚀 Analizar Audio</h2>
+                <button class="btn btn-primary btn-large" onclick="analizarFFT()">
+                    📊 Generar Espectrograma
+                </button>
+            </div>
+
+            <div class="panel">
+                <h2>📈 Gráficos</h2>
+                <div id="graficosFFT" class="chart-container">
+                    <p class="placeholder-text">Los gráficos aparecerán aquí después del análisis...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/fft.js') }}?v={{ cache_buster }}"></script>
+</body>
+</html>
